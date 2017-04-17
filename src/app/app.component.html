@@ -1,3 +1,77 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="col-md-12">
+    <h1>
+     <a href="http://CodingPerfection.com/">CodingPerfection.com</a> 
+    </h1>
+    <h1>DEMO: <small class="text-muted">Nested sortable using angular 4 and jquery ui sortable</small></h1>
+
+
+
+    <ul class="list-group ">
+      <div class="list-group-item">
+        <h2>Using lists <small class="text-muted">example of simple sortable list using ul and li</small></h2>
+        <h3><small class="text-muted">Try sorting categories,items and subItems below, and notice both div view and list view update as you sort 1 view.</small></h3>
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+
+            <!--this is the code you need for nested sortable lists-->
+            <ul class="list-group add-grab-cursor add-padding-for-better-experience" jquerySortable [sortable]="dataToSort" (onSort)="onSort($event)">
+              <li class="list-group-item" *ngFor="let category of dataToSort">
+                <h3>{{category.name}}</h3>
+                <ul class="list-group add-padding-for-better-experience" jquerySortable [sortable]="category.children" (onSort)="onSort($event)">
+                  <li class="list-group-item" *ngFor="let item of category.children">
+                    <h4>{{item.name}}</h4>
+                    <ul class="list-group add-padding-for-better-experience" *ngIf="item.children" jquerySortable [sortable]="item.children"
+                      (onSort)="onSort($event)">
+                      <li class="list-group-item" *ngFor="let subItem of item.children">
+                        <h5> {{subItem}}</h5>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!--end code you need-->
+
+          </div>
+        </div>
+      </div>
+    </ul>
+
+
+    <div class="list-group-item">
+      <h2>Using divs - <small class="text-muted">example of simple sortable list using divs</small></h2>
+      <h3><small class="text-muted">Try sorting categories,items and subItems below, and notice both div view and list view update as you sort 1 view.</small></h3>
+      <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+          <div class="row">
+
+            <!--this is the code you need for nested sortable divs-->
+            <div jquerySortable [sortable]="dataToSort" (onSort)="onSort($event)" class="add-padding-for-better-experience add-grab-cursor">
+              <div *ngFor="let category of dataToSort">
+                <h3>{{category.name}}</h3>
+                <div class="row">
+                  <div jquerySortable [sortable]="category.children" (onSort)="onSort($event)" class="col-md-10 col-md-offset-1 add-padding-for-better-experience">
+                    <div class="row" *ngFor="let item of category.children">
+                      <h4>{{item.name}}</h4>
+                      <div jquerySortable [sortable]="item.children" (onSort)="onSort($event)" *ngIf="item.children" class="col-md-11 col-md-offset-1 add-padding-for-better-experience">
+                        <div class="row" *ngFor="let subItem of item.children">
+                          <h5>{{subItem}}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end code you need-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.add-padding-for-better-experience{
+    padding:30px 0px;
+}
+
+.add-grab-cursor{
+    cursor: pointer;
+    cursor: hand;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
