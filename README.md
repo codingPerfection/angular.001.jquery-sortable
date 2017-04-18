@@ -1,28 +1,25 @@
-# Angular.001.JquerySortable
+# Angular 4 app - with nested jquery-ui sortable
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+[![N|Solid](http://codingperfection.com/static/poweredBy.png)](http://codingperfection.com)
+[See demo](http://codingperfection.com/static/angular/001/)
+[Read tutorial](http://codingperfection.com/angular-4-nested-sortable-list-using-jquery-ui/)
 
-## Development server
+Jquery-ui sortable allows nested sortables, this is simple angular 4 implementation.
+To use it put:
+ - "jquery-sortable.directive.ts"  in your project.
+ - include it in module declarations.
+ - load jquery and jquery ui
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ 
+After that it is simply using selector jquerySortable on parent element and instructing which array to sort. 
 
-## Code scaffolding
+### example:
+```sh
+<div jquerySortable [sortable]="dataToSort" (onSort)="onSort($event)">
+    <div *ngFor="let category of dataToSort">
+</div>
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+You can also nest the sortable elements on infite number of levels. 
+[See html template](./src/app/app.component.html)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
