@@ -1,7 +1,9 @@
 # Angular 4 app - with nested jquery-ui sortable
 
 [![N|Solid](http://codingperfection.com/static/poweredBy.png)](http://codingperfection.com)
+
 [See demo](http://codingperfection.com/static/angular/001/)
+
 [Read tutorial](http://codingperfection.com/angular-4-nested-sortable-list-using-jquery-ui/)
 
 Jquery-ui sortable allows nested sortables, this is simple angular 4 implementation.
